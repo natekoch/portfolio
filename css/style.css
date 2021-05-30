@@ -17,16 +17,13 @@ body, html {
 }
 
 h1 {
+  font: Helvetica;
   text-align: center;
-  color: red;
-}
-
-button {
   color: red;
 }
 
 a {
+  font: Helvetica;
   text-align: center;
-  color: red;
-  box-shadow: inset 0 -0.25em hsl(55, 100%, 75%);
+  box-shadow: inset 0 -0.25em hsl(0, 100%, 75%);
 }
