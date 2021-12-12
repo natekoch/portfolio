@@ -202,7 +202,8 @@ select { /* 1 */
 Correct the inability to style clickable types in iOS and Safari.
 */
 
-button {
+button,
+[type='button'] {
   -webkit-appearance: button;
 }
 
@@ -633,6 +634,41 @@ html {
     --tab-border: 1px;
     --tab-radius: 0.5rem;
   }
+}
+
+[data-theme=dark] {
+  --p: 259 94% 61%;
+  --pf: 259 94.4% 51.2%;
+  --pc: 0 0% 100%;
+  --s: 314 100% 47.1%;
+  --sf: 314 100% 37.1%;
+  --sc: 0 0% 100%;
+  --a: 174 60% 51%;
+  --af: 174 59.8% 41%;
+  --ac: 0 0% 100%;
+  --n: 222 13.4% 19%;
+  --nf: 223 13.7% 10%;
+  --nc: 0 0% 100%;
+  --b1: 219 14.1% 27.8%;
+  --b2: 222 13.4% 19%;
+  --b3: 223 13.7% 10%;
+  --bc: 228 14.3% 93.1%;
+  --in: 202 100% 70%;
+  --su: 89 61.6% 52%;
+  --wa: 54 68.8% 63.5%;
+  --er: 0 100% 71.8%;
+  --border-color: var(--b3);
+  --rounded-box: 1rem;
+  --rounded-btn: 0.5rem;
+  --rounded-badge: 1.9rem;
+  --animation-btn: 0.25s;
+  --animation-input: .2s;
+  --btn-text-case: uppercase;
+  --btn-focus-scale: 0.95;
+  --navbar-padding: .5rem;
+  --border-btn: 1px;
+  --tab-border: 1px;
+  --tab-radius: 0.5rem;
 }
 
 .btn {
@@ -1270,8 +1306,8 @@ html {
   align-items: stretch;
 }
 
-.overflow-auto {
-  overflow: auto;
+.overflow-hidden {
+  overflow: hidden;
 }
 
 .bg-primary {
@@ -1293,13 +1329,27 @@ html {
   padding-right: 0.5rem;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
 
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
 .font-bold {
   font-weight: 700;
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 
 .text-neutral-content {
