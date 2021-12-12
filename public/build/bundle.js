@@ -39,6 +39,15 @@ var app = (function () {
     function element(name) {
         return document.createElement(name);
     }
+    function svg_element(name) {
+        return document.createElementNS('http://www.w3.org/2000/svg', name);
+    }
+    function text(data) {
+        return document.createTextNode(data);
+    }
+    function space() {
+        return text(' ');
+    }
     function attr(node, attribute, value) {
         if (value == null)
             node.removeAttribute(attribute);
@@ -310,19 +319,101 @@ var app = (function () {
 
     function create_fragment(ctx) {
     	let main;
-    	let div;
+    	let nav;
+    	let div0;
+    	let span;
+    	let t1;
+    	let div2;
+    	let div1;
+    	let button0;
+    	let t3;
+    	let button1;
+    	let t5;
+    	let button2;
+    	let t7;
+    	let button3;
+    	let t9;
+    	let button4;
+    	let t11;
+    	let div3;
+    	let button5;
+    	let svg;
+    	let path;
+    	let t12;
+    	let div4;
     	let h1;
 
     	const block = {
     		c: function create() {
     			main = element("main");
-    			div = element("div");
+    			nav = element("nav");
+    			div0 = element("div");
+    			span = element("span");
+    			span.textContent = "nate koch";
+    			t1 = space();
+    			div2 = element("div");
+    			div1 = element("div");
+    			button0 = element("button");
+    			button0.textContent = "Home";
+    			t3 = space();
+    			button1 = element("button");
+    			button1.textContent = "Photography";
+    			t5 = space();
+    			button2 = element("button");
+    			button2.textContent = "Programming";
+    			t7 = space();
+    			button3 = element("button");
+    			button3.textContent = "About";
+    			t9 = space();
+    			button4 = element("button");
+    			button4.textContent = "Contact";
+    			t11 = space();
+    			div3 = element("div");
+    			button5 = element("button");
+    			svg = svg_element("svg");
+    			path = svg_element("path");
+    			t12 = space();
+    			div4 = element("div");
     			h1 = element("h1");
     			h1.textContent = "Welcome!";
+    			attr_dev(span, "class", "text-lg font-bold");
+    			add_location(span, file, 6, 3, 150);
+    			attr_dev(div0, "class", "px-2 mx-2 navbar-start");
+    			add_location(div0, file, 5, 2, 110);
+    			attr_dev(button0, "class", "btn btn-ghost btn-sm rounded-btn");
+    			add_location(button0, file, 12, 4, 313);
+    			attr_dev(button1, "class", "btn btn-ghost btn-sm rounded-btn");
+    			add_location(button1, file, 15, 4, 392);
+    			attr_dev(button2, "class", "btn btn-ghost btn-sm rounded-btn");
+    			add_location(button2, file, 18, 4, 478);
+    			attr_dev(button3, "class", "btn btn-ghost btn-sm rounded-btn");
+    			add_location(button3, file, 21, 4, 564);
+    			attr_dev(button4, "class", "btn btn-ghost btn-sm rounded-btn");
+    			add_location(button4, file, 24, 4, 644);
+    			attr_dev(div1, "class", "flex items-stretch");
+    			add_location(div1, file, 11, 3, 276);
+    			attr_dev(div2, "class", "hidden px-2 mx-2 navbar-center lg:flex");
+    			add_location(div2, file, 10, 2, 220);
+    			attr_dev(path, "stroke-linecap", "round");
+    			attr_dev(path, "stroke-linejoin", "round");
+    			attr_dev(path, "stroke-width", "2");
+    			attr_dev(path, "d", "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z");
+    			add_location(path, file, 32, 4, 952);
+    			attr_dev(svg, "xmlns", "http://www.w3.org/2000/svg");
+    			attr_dev(svg, "fill", "none");
+    			attr_dev(svg, "viewBox", "0 0 24 24");
+    			attr_dev(svg, "class", "inline-block w-6 h-6 stroke-current");
+    			add_location(svg, file, 31, 4, 818);
+    			attr_dev(button5, "class", "btn btn-square btn-ghost");
+    			add_location(button5, file, 30, 3, 772);
+    			attr_dev(div3, "class", "navbar-end");
+    			add_location(div3, file, 29, 2, 744);
+    			attr_dev(nav, "class", "navbar mb-2 shadow-lg bg-neutral text-neutral-content rounded-box");
+    			add_location(nav, file, 4, 1, 28);
     			attr_dev(h1, "class", "text-bold text-2xl text-white");
-    			add_location(h1, file, 5, 2, 56);
-    			attr_dev(div, "class", "text-center");
-    			add_location(div, file, 4, 1, 28);
+    			add_location(h1, file, 38, 2, 1162);
+    			attr_dev(div4, "class", "text-center");
+    			add_location(div4, file, 37, 1, 1134);
     			add_location(main, file, 3, 0, 20);
     		},
     		l: function claim(nodes) {
@@ -330,8 +421,29 @@ var app = (function () {
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, main, anchor);
-    			append_dev(main, div);
-    			append_dev(div, h1);
+    			append_dev(main, nav);
+    			append_dev(nav, div0);
+    			append_dev(div0, span);
+    			append_dev(nav, t1);
+    			append_dev(nav, div2);
+    			append_dev(div2, div1);
+    			append_dev(div1, button0);
+    			append_dev(div1, t3);
+    			append_dev(div1, button1);
+    			append_dev(div1, t5);
+    			append_dev(div1, button2);
+    			append_dev(div1, t7);
+    			append_dev(div1, button3);
+    			append_dev(div1, t9);
+    			append_dev(div1, button4);
+    			append_dev(nav, t11);
+    			append_dev(nav, div3);
+    			append_dev(div3, button5);
+    			append_dev(button5, svg);
+    			append_dev(svg, path);
+    			append_dev(main, t12);
+    			append_dev(main, div4);
+    			append_dev(div4, h1);
     		},
     		p: noop,
     		i: noop,
