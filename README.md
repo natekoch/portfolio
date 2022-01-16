@@ -1,6 +1,6 @@
 # natekoch.xyz Portfolio Website
-
-Made with:
+## Currently WIP (not yet deployed)
+### Made with:
 
 * Svelte
 * Tailwindcss + DaisyUI
