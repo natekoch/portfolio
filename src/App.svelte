@@ -1,4 +1,7 @@
 <script>
+	import Blog from "./Blog.svelte";
+
+	let menu = 1;
 </script>
 
 <main>
@@ -10,19 +13,22 @@
 		</div> 
 		<div class="hidden px-2 mx-2 navbar-center lg:flex">
 			<div class="flex items-stretch">
-				<button class="btn btn-ghost btn-sm rounded-btn">
+				<button class="btn btn-ghost btn-sm rounded-btn" on:click|preventDefault={() => (menu = 1)}>
 					Home
 				</button> 
-				<button class="btn btn-ghost btn-sm rounded-btn">
+				<button class="btn btn-ghost btn-sm rounded-btn" on:click|preventDefault={() => (menu = 2)}>
 					Photography
 				</button> 
-				<button class="btn btn-ghost btn-sm rounded-btn">
+				<button class="btn btn-ghost btn-sm rounded-btn" on:click|preventDefault={() => (menu = 3)}>
 					Programming
 				</button> 
-				<button class="btn btn-ghost btn-sm rounded-btn">
+				<button class="btn btn-ghost btn-sm rounded-btn" on:click|preventDefault={() => (menu = 4)}>
+					Blog
+				</button> 
+				<button class="btn btn-ghost btn-sm rounded-btn" on:click|preventDefault={() => (menu = 5)}>
 					About
 				</button> 
-				<button class="btn btn-ghost btn-sm rounded-btn">
+				<button class="btn btn-ghost btn-sm rounded-btn" on:click|preventDefault={() => (menu = 6)}>
 					Contact
 				</button> 
 			</div>
@@ -34,10 +40,18 @@
 				</svg>
 			</button>
 		</div>
-	</nav> 
+	</nav>
+	{#if menu === 1} 
 	<div class="text-center">
 		<h1 class="text-bold text-2xl text-white">Welcome!</h1>
 	</div>
+	{:else if menu === 4}
+	<Blog />
+	{:else}
+	<h1>
+		Page Not Found
+	</h1>
+	{/if}
 </main>
 
 <style>
