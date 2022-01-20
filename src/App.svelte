@@ -1,5 +1,10 @@
 <script>
 	import Blog from "./Blog.svelte";
+	import Home from "./Home.svelte";
+	import About from "./About.svelte";
+	import Contact from "./Contact.svelte";
+	import Photography from "./Photography.svelte";
+	import Programming from "./Programming.svelte";
 
 	let menu = 1;
 </script>
@@ -42,15 +47,21 @@
 		</div>
 	</nav>
 	{#if menu === 1} 
-	<div class="text-center">
-		<h1 class="text-bold text-2xl text-white">Welcome!</h1>
-	</div>
+		<Home />
+	{:else if menu === 2}
+		<Photography />
+	{:else if menu === 3}
+		<Programming />
 	{:else if menu === 4}
-	<Blog />
+		<Blog />
+	{:else if menu === 5}
+		<About />
+	{:else if menu === 6}
+		<Contact />
 	{:else}
-	<h1>
-		Page Not Found
-	</h1>
+		<h1>
+			Page Not Found
+		</h1>
 	{/if}
 </main>
 

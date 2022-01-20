@@ -11,6 +11,11 @@ module.exports = {
     content: [
      "./src/App.svelte",
      "./src/Blog.svelte",
+     "./src/Contact.svelte",
+     "./src/Home.svelte",
+     "./src/Programming.svelte",
+     "./src/Photography.svelte",
+     "./src/About.svelte",
      "./public/index.html"
     ],
     enabled: production // disable purge in dev
