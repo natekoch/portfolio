@@ -24,6 +24,14 @@ var app = (function () {
     function safe_not_equal(a, b) {
         return a != a ? b == b : a !== b || ((a && typeof a === 'object') || typeof a === 'function');
     }
+    let src_url_equal_anchor;
+    function src_url_equal(element_src, url) {
+        if (!src_url_equal_anchor) {
+            src_url_equal_anchor = document.createElement('a');
+        }
+        src_url_equal_anchor.href = url;
+        return element_src === src_url_equal_anchor.href;
+    }
     function is_empty(obj) {
         return Object.keys(obj).length === 0;
     }
@@ -629,19 +637,34 @@ var app = (function () {
 
     function create_fragment$3(ctx) {
     	let body;
-    	let div;
+    	let div1;
+    	let div0;
     	let h1;
+    	let t1;
+    	let a;
+    	let button;
 
     	const block = {
     		c: function create() {
     			body = element("body");
-    			div = element("div");
+    			div1 = element("div");
+    			div0 = element("div");
     			h1 = element("h1");
     			h1.textContent = "Get in contact with me.";
+    			t1 = space();
+    			a = element("a");
+    			button = element("button");
+    			button.textContent = "Email Me";
     			attr_dev(h1, "class", "text-bold text-2xl text-white");
-    			add_location(h1, file$3, 2, 8, 45);
-    			attr_dev(div, "class", "text-center");
-    			add_location(div, file$3, 1, 4, 11);
+    			add_location(h1, file$3, 3, 8, 150);
+    			attr_dev(button, "class", "btn btn-secondary btn-sm md:btn-md lg:btn-lg m-4");
+    			add_location(button, file$3, 5, 12, 275);
+    			attr_dev(a, "href", "mailto:nkoch@jaaku.xyz");
+    			add_location(a, file$3, 4, 8, 229);
+    			attr_dev(div0, "class", "text-center");
+    			add_location(div0, file$3, 2, 8, 116);
+    			attr_dev(div1, "class", "grid grid-cols-1 grid-rows-2 grid-flow-row-dense place-items-center gap-0 h-screen");
+    			add_location(div1, file$3, 1, 4, 11);
     			add_location(body, file$3, 0, 0, 0);
     		},
     		l: function claim(nodes) {
@@ -649,8 +672,12 @@ var app = (function () {
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, body, anchor);
-    			append_dev(body, div);
-    			append_dev(div, h1);
+    			append_dev(body, div1);
+    			append_dev(div1, div0);
+    			append_dev(div0, h1);
+    			append_dev(div0, t1);
+    			append_dev(div0, a);
+    			append_dev(a, button);
     		},
     		p: noop,
     		i: noop,
@@ -703,19 +730,35 @@ var app = (function () {
 
     function create_fragment$2(ctx) {
     	let body;
-    	let div;
+    	let div0;
     	let h1;
+    	let t1;
+    	let div2;
+    	let div1;
+    	let img;
+    	let img_src_value;
 
     	const block = {
     		c: function create() {
     			body = element("body");
-    			div = element("div");
+    			div0 = element("div");
     			h1 = element("h1");
     			h1.textContent = "My Photos";
+    			t1 = space();
+    			div2 = element("div");
+    			div1 = element("div");
+    			img = element("img");
     			attr_dev(h1, "class", "text-bold text-2xl text-white");
     			add_location(h1, file$2, 2, 8, 45);
-    			attr_dev(div, "class", "text-center");
-    			add_location(div, file$2, 1, 4, 11);
+    			attr_dev(div0, "class", "text-center");
+    			add_location(div0, file$2, 1, 4, 11);
+    			if (!src_url_equal(img.src, img_src_value = "/photos/00043261/000432610001.jpg")) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "alt", "name here");
+    			add_location(img, file$2, 7, 12, 255);
+    			attr_dev(div1, "class", "w-full rounded");
+    			add_location(div1, file$2, 6, 8, 214);
+    			attr_dev(div2, "class", "container grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-2 mx-auto");
+    			add_location(div2, file$2, 5, 4, 118);
     			add_location(body, file$2, 0, 0, 0);
     		},
     		l: function claim(nodes) {
@@ -723,8 +766,12 @@ var app = (function () {
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, body, anchor);
-    			append_dev(body, div);
-    			append_dev(div, h1);
+    			append_dev(body, div0);
+    			append_dev(div0, h1);
+    			append_dev(body, t1);
+    			append_dev(body, div2);
+    			append_dev(div2, div1);
+    			append_dev(div1, img);
     		},
     		p: noop,
     		i: noop,
