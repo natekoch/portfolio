@@ -48,24 +48,24 @@
 		</div>
 	</nav>
 	-->
-	<div class="navbar bg-neutral rounded-box">
+	<div class="navbar bg-primary rounded-box">
 		<div class="navbar-start">
 		  <div class="dropdown">
 			<label tabindex="0" class="btn btn-ghost btn-circle" for="dropdown">
 			  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="white"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
 			</label>
-			<ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-neutral rounded-box w-52">
-			  <li><a class="text-white" href="index.html" style="text-decoration: none; color: white">Homepage</a></li>
-			  <li><a class="text-white" href="index.html" style="text-decoration: none; color: white">Photography</a></li>
-			  <li><a class="text-white" href="index.html" style="text-decoration: none; color: white">Programming</a></li>
-			  <li><a class="text-white" href="index.html" style="text-decoration: none; color: white">Blog</a></li>
-			  <li><a class="text-white" href="index.html" style="text-decoration: none; color: white">About</a></li>
-			  <li><a class="text-white" href="index.html" style="text-decoration: none; color: white">Contact</a></li>
+			<ul tabindex="0" class="menu dropdown-content mt-3 p-2 shadow bg-secondary rounded-box w-52">
+			  <li><button class="text-white btn btn-ghost normal-case my-1 border-transparent hover:border-accent" style="color: white" on:click|preventDefault={() => (menu = 1)}>Homepage</button></li>
+			  <li><button class="text-white btn btn-ghost normal-case my-1 border-transparent hover:border-accent" style="color: white" on:click|preventDefault={() => (menu = 2)}>Photography</button></li>
+			  <li><button class="text-white btn btn-ghost normal-case my-1 border-transparent hover:border-accent" style="color: white" on:click|preventDefault={() => (menu = 3)}>Programming</button></li>
+			  <li><button class="text-white btn btn-ghost normal-case my-1 border-transparent hover:border-accent" style="color: white" on:click|preventDefault={() => (menu = 4)}>Blog</button></li>
+			  <li><button class="text-white btn btn-ghost normal-case my-1 border-transparent hover:border-accent" style="color: white" on:click|preventDefault={() => (menu = 5)}>Blog</button></li>
+			  <li><button class="text-white btn btn-ghost normal-case my-1 border-transparent hover:border-accent" style="color: white" on:click|preventDefault={() => (menu = 6)}>Contact</button></li>
 			</ul>
 		  </div>
 		</div>
 		<div class="navbar-center">
-		  <a class="btn btn-ghost normal-case text-white text-xl" style="text-decoration: none; color: white" href="index.html">nate koch</a>
+		  <button class="btn btn-ghost normal-case text-white hover:text-secondary text-xl" on:click|preventDefault={() => (menu = 1)}>nate koch</button>
 		</div>
 		<div class="navbar-end">
 			<button class="btn btn-ghost btn-circle">

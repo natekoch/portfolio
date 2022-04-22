@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="acid">
 <head>
 	<meta charset='utf-8'>
 	<meta name='viewport' content='width=device-width,initial-scale=1'>
@@ -14,7 +14,18 @@
 	<script defer src='/build/bundle.js'></script>
 </head>
 
-<body class="bg-primary h-full">
-	
-</body>
+<body class="no_scroll_bar"></body>
+
+<style>
+	.no_scroll_bar {
+        position: absolute;
+        left: 0;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+	.no_scroll_bar::-webkit-scrollbar {
+    	display: none;
+	}
+</style>
+
 </html>

@@ -2,7 +2,7 @@ const production = !process.env.ROLLUP_WATCH;
 module.exports = {
   future: {
     purgeLayersByDefault: true,
-    removeDeprecatedGapUtilities: true,
+    removeDeprecatedGapUtilities: true, 
   },
   plugins: [
     require('daisyui')
