@@ -56,17 +56,6 @@ var app = (function () {
     function space() {
         return text(' ');
     }
-    function listen(node, event, handler, options) {
-        node.addEventListener(event, handler, options);
-        return () => node.removeEventListener(event, handler, options);
-    }
-    function prevent_default(fn) {
-        return function (event) {
-            event.preventDefault();
-            // @ts-ignore
-            return fn.call(this, event);
-        };
-    }
     function attr(node, attribute, value) {
         if (value == null)
             node.removeAttribute(attribute);
@@ -75,6 +64,14 @@ var app = (function () {
     }
     function children(element) {
         return Array.from(element.childNodes);
+    }
+    function set_style(node, key, value, important) {
+        if (value === null) {
+            node.style.removeProperty(key);
+        }
+        else {
+            node.style.setProperty(key, value, important ? 'important' : '');
+        }
     }
     function custom_event(type, detail, bubbles = false) {
         const e = document.createEvent('CustomEvent');
@@ -170,19 +167,6 @@ var app = (function () {
     }
     const outroing = new Set();
     let outros;
-    function group_outros() {
-        outros = {
-            r: 0,
-            c: [],
-            p: outros // parent group
-        };
-    }
-    function check_outros() {
-        if (!outros.r) {
-            run_all(outros.c);
-        }
-        outros = outros.p;
-    }
     function transition_in(block, local) {
         if (block && block.i) {
             outroing.delete(block);
@@ -348,19 +332,6 @@ var app = (function () {
     function detach_dev(node) {
         dispatch_dev('SvelteDOMRemove', { node });
         detach(node);
-    }
-    function listen_dev(node, event, handler, options, has_prevent_default, has_stop_propagation) {
-        const modifiers = options === true ? ['capture'] : options ? Array.from(Object.keys(options)) : [];
-        if (has_prevent_default)
-            modifiers.push('preventDefault');
-        if (has_stop_propagation)
-            modifiers.push('stopPropagation');
-        dispatch_dev('SvelteDOMAddEventListener', { node, event, handler, modifiers });
-        const dispose = listen(node, event, handler, options);
-        return () => {
-            dispatch_dev('SvelteDOMRemoveEventListener', { node, event, handler, modifiers });
-            dispose();
-        };
     }
     function attr_dev(node, attribute, value) {
         attr(node, attribute, value);
@@ -730,35 +701,39 @@ var app = (function () {
 
     function create_fragment$2(ctx) {
     	let body;
-    	let div0;
-    	let h1;
+    	let div;
+    	let img0;
+    	let img0_src_value;
+    	let t0;
+    	let img1;
+    	let img1_src_value;
     	let t1;
-    	let div2;
-    	let div1;
-    	let img;
-    	let img_src_value;
+    	let img2;
+    	let img2_src_value;
 
     	const block = {
     		c: function create() {
     			body = element("body");
-    			div0 = element("div");
-    			h1 = element("h1");
-    			h1.textContent = "My Photos";
+    			div = element("div");
+    			img0 = element("img");
+    			t0 = space();
+    			img1 = element("img");
     			t1 = space();
-    			div2 = element("div");
-    			div1 = element("div");
-    			img = element("img");
-    			attr_dev(h1, "class", "text-bold text-2xl text-white");
-    			add_location(h1, file$2, 2, 8, 45);
-    			attr_dev(div0, "class", "text-center");
-    			add_location(div0, file$2, 1, 4, 11);
-    			if (!src_url_equal(img.src, img_src_value = "/photos/00043261/000432610001.jpg")) attr_dev(img, "src", img_src_value);
-    			attr_dev(img, "alt", "name here");
-    			add_location(img, file$2, 7, 12, 255);
-    			attr_dev(div1, "class", "w-full rounded");
-    			add_location(div1, file$2, 6, 8, 214);
-    			attr_dev(div2, "class", "container grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-2 mx-auto");
-    			add_location(div2, file$2, 5, 4, 118);
+    			img2 = element("img");
+    			if (!src_url_equal(img0.src, img0_src_value = "00043261/000432610001.jpg")) attr_dev(img0, "src", img0_src_value);
+    			attr_dev(img0, "alt", "topstack");
+    			attr_dev(img0, "class", "rounded");
+    			add_location(img0, file$2, 2, 8, 39);
+    			if (!src_url_equal(img1.src, img1_src_value = "00043261/000432610002.jpg")) attr_dev(img1, "src", img1_src_value);
+    			attr_dev(img1, "alt", "middlestack");
+    			attr_dev(img1, "class", "rounded");
+    			add_location(img1, file$2, 3, 8, 118);
+    			if (!src_url_equal(img2.src, img2_src_value = "00043261/000432610003.jpg")) attr_dev(img2, "src", img2_src_value);
+    			attr_dev(img2, "alt", "bottomstack");
+    			attr_dev(img2, "class", "rounded");
+    			add_location(img2, file$2, 4, 8, 200);
+    			attr_dev(div, "class", "stack");
+    			add_location(div, file$2, 1, 4, 11);
     			add_location(body, file$2, 0, 0, 0);
     		},
     		l: function claim(nodes) {
@@ -766,12 +741,12 @@ var app = (function () {
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, body, anchor);
-    			append_dev(body, div0);
-    			append_dev(div0, h1);
-    			append_dev(body, t1);
-    			append_dev(body, div2);
-    			append_dev(div2, div1);
-    			append_dev(div1, img);
+    			append_dev(body, div);
+    			append_dev(div, img0);
+    			append_dev(div, t0);
+    			append_dev(div, img1);
+    			append_dev(div, t1);
+    			append_dev(div, img2);
     		},
     		p: noop,
     		i: noop,
@@ -895,7 +870,7 @@ var app = (function () {
     /* src/App.svelte generated by Svelte v3.46.2 */
     const file = "src/App.svelte";
 
-    // (61:1) {:else}
+    // (91:1) {:else}
     function create_else_block(ctx) {
     	let h1;
 
@@ -903,7 +878,7 @@ var app = (function () {
     		c: function create() {
     			h1 = element("h1");
     			h1.textContent = "Page Not Found";
-    			add_location(h1, file, 61, 2, 1960);
+    			add_location(h1, file, 91, 2, 5890);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -919,14 +894,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(61:1) {:else}",
+    		source: "(91:1) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (59:22) 
+    // (89:22) 
     function create_if_block_5(ctx) {
     	let contact;
     	let current;
@@ -958,14 +933,14 @@ var app = (function () {
     		block,
     		id: create_if_block_5.name,
     		type: "if",
-    		source: "(59:22) ",
+    		source: "(89:22) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:22) 
+    // (87:22) 
     function create_if_block_4(ctx) {
     	let about;
     	let current;
@@ -997,14 +972,14 @@ var app = (function () {
     		block,
     		id: create_if_block_4.name,
     		type: "if",
-    		source: "(57:22) ",
+    		source: "(87:22) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (55:22) 
+    // (85:22) 
     function create_if_block_3(ctx) {
     	let blog;
     	let current;
@@ -1036,14 +1011,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(55:22) ",
+    		source: "(85:22) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (53:22) 
+    // (83:22) 
     function create_if_block_2(ctx) {
     	let programming;
     	let current;
@@ -1075,14 +1050,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(53:22) ",
+    		source: "(83:22) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (51:22) 
+    // (81:22) 
     function create_if_block_1(ctx) {
     	let photography;
     	let current;
@@ -1114,14 +1089,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(51:22) ",
+    		source: "(81:22) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (49:1) {#if menu === 1}
+    // (79:1) {#if menu === 1}
     function create_if_block(ctx) {
     	let home;
     	let current;
@@ -1153,7 +1128,7 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(49:1) {#if menu === 1}",
+    		source: "(79:1) {#if menu === 1}",
     		ctx
     	});
 
@@ -1162,34 +1137,47 @@ var app = (function () {
 
     function create_fragment(ctx) {
     	let main;
-    	let nav;
-    	let div0;
-    	let span;
-    	let t1;
-    	let div2;
+    	let div4;
     	let div1;
-    	let button0;
-    	let t3;
-    	let button1;
-    	let t5;
-    	let button2;
-    	let t7;
-    	let button3;
-    	let t9;
-    	let button4;
-    	let t11;
-    	let button5;
-    	let t13;
-    	let div3;
-    	let button6;
-    	let svg;
-    	let path;
+    	let div0;
+    	let label;
+    	let svg0;
+    	let path0;
+    	let t0;
+    	let ul;
+    	let li0;
+    	let a0;
+    	let t2;
+    	let li1;
+    	let a1;
+    	let t4;
+    	let li2;
+    	let a2;
+    	let t6;
+    	let li3;
+    	let a3;
+    	let t8;
+    	let li4;
+    	let a4;
+    	let t10;
+    	let li5;
+    	let a5;
+    	let t12;
+    	let div2;
+    	let a6;
     	let t14;
+    	let div3;
+    	let button0;
+    	let svg1;
+    	let path1;
+    	let t15;
+    	let button1;
+    	let svg2;
+    	let path2;
+    	let t16;
     	let current_block_type_index;
     	let if_block;
     	let current;
-    	let mounted;
-    	let dispose;
 
     	const if_block_creators = [
     		create_if_block,
@@ -1219,73 +1207,139 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			main = element("main");
-    			nav = element("nav");
-    			div0 = element("div");
-    			span = element("span");
-    			span.textContent = "nate koch";
-    			t1 = space();
-    			div2 = element("div");
+    			div4 = element("div");
     			div1 = element("div");
-    			button0 = element("button");
-    			button0.textContent = "Home";
-    			t3 = space();
-    			button1 = element("button");
-    			button1.textContent = "Photography";
-    			t5 = space();
-    			button2 = element("button");
-    			button2.textContent = "Programming";
-    			t7 = space();
-    			button3 = element("button");
-    			button3.textContent = "Blog";
-    			t9 = space();
-    			button4 = element("button");
-    			button4.textContent = "About";
-    			t11 = space();
-    			button5 = element("button");
-    			button5.textContent = "Contact";
-    			t13 = space();
-    			div3 = element("div");
-    			button6 = element("button");
-    			svg = svg_element("svg");
-    			path = svg_element("path");
+    			div0 = element("div");
+    			label = element("label");
+    			svg0 = svg_element("svg");
+    			path0 = svg_element("path");
+    			t0 = space();
+    			ul = element("ul");
+    			li0 = element("li");
+    			a0 = element("a");
+    			a0.textContent = "Homepage";
+    			t2 = space();
+    			li1 = element("li");
+    			a1 = element("a");
+    			a1.textContent = "Photography";
+    			t4 = space();
+    			li2 = element("li");
+    			a2 = element("a");
+    			a2.textContent = "Programming";
+    			t6 = space();
+    			li3 = element("li");
+    			a3 = element("a");
+    			a3.textContent = "Blog";
+    			t8 = space();
+    			li4 = element("li");
+    			a4 = element("a");
+    			a4.textContent = "About";
+    			t10 = space();
+    			li5 = element("li");
+    			a5 = element("a");
+    			a5.textContent = "Contact";
+    			t12 = space();
+    			div2 = element("div");
+    			a6 = element("a");
+    			a6.textContent = "nate koch";
     			t14 = space();
+    			div3 = element("div");
+    			button0 = element("button");
+    			svg1 = svg_element("svg");
+    			path1 = svg_element("path");
+    			t15 = space();
+    			button1 = element("button");
+    			svg2 = svg_element("svg");
+    			path2 = svg_element("path");
+    			t16 = space();
     			if_block.c();
-    			attr_dev(span, "class", "text-lg font-bold");
-    			add_location(span, file, 14, 3, 412);
-    			attr_dev(div0, "class", "px-2 mx-2 navbar-start");
-    			add_location(div0, file, 13, 2, 372);
-    			attr_dev(button0, "class", "btn btn-ghost btn-sm rounded-btn");
-    			add_location(button0, file, 20, 4, 575);
-    			attr_dev(button1, "class", "btn btn-ghost btn-sm rounded-btn");
-    			add_location(button1, file, 23, 4, 697);
-    			attr_dev(button2, "class", "btn btn-ghost btn-sm rounded-btn");
-    			add_location(button2, file, 26, 4, 826);
-    			attr_dev(button3, "class", "btn btn-ghost btn-sm rounded-btn");
-    			add_location(button3, file, 29, 4, 955);
-    			attr_dev(button4, "class", "btn btn-ghost btn-sm rounded-btn");
-    			add_location(button4, file, 32, 4, 1077);
-    			attr_dev(button5, "class", "btn btn-ghost btn-sm rounded-btn");
-    			add_location(button5, file, 35, 4, 1200);
-    			attr_dev(div1, "class", "flex items-stretch");
-    			add_location(div1, file, 19, 3, 538);
-    			attr_dev(div2, "class", "hidden px-2 mx-2 navbar-center lg:flex");
-    			add_location(div2, file, 18, 2, 482);
-    			attr_dev(path, "stroke-linecap", "round");
-    			attr_dev(path, "stroke-linejoin", "round");
-    			attr_dev(path, "stroke-width", "2");
-    			attr_dev(path, "d", "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z");
-    			add_location(path, file, 43, 4, 1551);
-    			attr_dev(svg, "xmlns", "http://www.w3.org/2000/svg");
-    			attr_dev(svg, "fill", "none");
-    			attr_dev(svg, "viewBox", "0 0 24 24");
-    			attr_dev(svg, "class", "inline-block w-6 h-6 stroke-current");
-    			add_location(svg, file, 42, 4, 1417);
-    			attr_dev(button6, "class", "btn btn-square btn-ghost");
-    			add_location(button6, file, 41, 3, 1371);
+    			attr_dev(path0, "stroke-linecap", "round");
+    			attr_dev(path0, "stroke-linejoin", "round");
+    			attr_dev(path0, "stroke-width", "2");
+    			attr_dev(path0, "d", "M4 6h16M4 12h16M4 18h7");
+    			add_location(path0, file, 54, 108, 2023);
+    			attr_dev(svg0, "xmlns", "http://www.w3.org/2000/svg");
+    			attr_dev(svg0, "class", "h-5 w-5");
+    			attr_dev(svg0, "fill", "none");
+    			attr_dev(svg0, "viewBox", "0 0 24 24");
+    			attr_dev(svg0, "stroke", "white");
+    			add_location(svg0, file, 54, 5, 1920);
+    			attr_dev(label, "tabindex", "0");
+    			attr_dev(label, "class", "btn btn-ghost btn-circle");
+    			attr_dev(label, "for", "dropdown");
+    			add_location(label, file, 53, 3, 1846);
+    			attr_dev(a0, "class", "text-white");
+    			attr_dev(a0, "href", "index.html");
+    			set_style(a0, "text-decoration", "none");
+    			set_style(a0, "color", "white");
+    			add_location(a0, file, 57, 9, 2258);
+    			add_location(li0, file, 57, 5, 2254);
+    			attr_dev(a1, "class", "text-white");
+    			attr_dev(a1, "href", "index.html");
+    			set_style(a1, "text-decoration", "none");
+    			set_style(a1, "color", "white");
+    			add_location(a1, file, 58, 9, 2369);
+    			add_location(li1, file, 58, 5, 2365);
+    			attr_dev(a2, "class", "text-white");
+    			attr_dev(a2, "href", "index.html");
+    			set_style(a2, "text-decoration", "none");
+    			set_style(a2, "color", "white");
+    			add_location(a2, file, 59, 9, 2483);
+    			add_location(li2, file, 59, 5, 2479);
+    			attr_dev(a3, "class", "text-white");
+    			attr_dev(a3, "href", "index.html");
+    			set_style(a3, "text-decoration", "none");
+    			set_style(a3, "color", "white");
+    			add_location(a3, file, 60, 9, 2597);
+    			add_location(li3, file, 60, 5, 2593);
+    			attr_dev(a4, "class", "text-white");
+    			attr_dev(a4, "href", "index.html");
+    			set_style(a4, "text-decoration", "none");
+    			set_style(a4, "color", "white");
+    			add_location(a4, file, 61, 9, 2704);
+    			add_location(li4, file, 61, 5, 2700);
+    			attr_dev(a5, "class", "text-white");
+    			attr_dev(a5, "href", "index.html");
+    			set_style(a5, "text-decoration", "none");
+    			set_style(a5, "color", "white");
+    			add_location(a5, file, 62, 9, 2812);
+    			add_location(li5, file, 62, 5, 2808);
+    			attr_dev(ul, "tabindex", "0");
+    			attr_dev(ul, "class", "menu menu-compact dropdown-content mt-3 p-2 shadow bg-neutral rounded-box w-52");
+    			add_location(ul, file, 56, 3, 2144);
+    			attr_dev(div0, "class", "dropdown");
+    			add_location(div0, file, 52, 4, 1820);
+    			attr_dev(div1, "class", "navbar-start");
+    			add_location(div1, file, 51, 2, 1789);
+    			attr_dev(a6, "class", "btn btn-ghost normal-case text-white text-xl");
+    			set_style(a6, "text-decoration", "none");
+    			set_style(a6, "color", "white");
+    			attr_dev(a6, "href", "index.html");
+    			add_location(a6, file, 67, 4, 2976);
+    			attr_dev(div2, "class", "navbar-center");
+    			add_location(div2, file, 66, 2, 2944);
+    			attr_dev(path1, "d", "M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z");
+    			add_location(path1, file, 71, 308, 3497);
+    			attr_dev(svg1, "xmlns", "http://www.w3.org/2000/svg");
+    			attr_dev(svg1, "class", "h-7 w-7");
+    			attr_dev(svg1, "viewBox", "0 0 496 512");
+    			attr_dev(svg1, "stroke", "white");
+    			add_location(svg1, file, 71, 4, 3193);
+    			attr_dev(button0, "class", "btn btn-ghost btn-circle");
+    			add_location(button0, file, 70, 3, 3147);
+    			attr_dev(path2, "d", "M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z");
+    			add_location(path2, file, 74, 308, 5186);
+    			attr_dev(svg2, "xmlns", "http://www.w3.org/2000/svg");
+    			attr_dev(svg2, "class", "h-7 w-7");
+    			attr_dev(svg2, "viewBox", "0 0 448 512");
+    			attr_dev(svg2, "stroke", "white");
+    			add_location(svg2, file, 74, 4, 4882);
+    			attr_dev(button1, "class", "btn btn-ghost btn-circle");
+    			add_location(button1, file, 73, 3, 4836);
     			attr_dev(div3, "class", "navbar-end");
-    			add_location(div3, file, 40, 2, 1343);
-    			attr_dev(nav, "class", "navbar mb-2 shadow-lg bg-neutral text-neutral-content rounded-box");
-    			add_location(nav, file, 12, 1, 290);
+    			add_location(div3, file, 69, 2, 3119);
+    			attr_dev(div4, "class", "navbar bg-neutral rounded-box");
+    			add_location(div4, file, 50, 1, 1743);
     			add_location(main, file, 11, 0, 282);
     		},
     		l: function claim(nodes) {
@@ -1293,68 +1347,48 @@ var app = (function () {
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, main, anchor);
-    			append_dev(main, nav);
-    			append_dev(nav, div0);
-    			append_dev(div0, span);
-    			append_dev(nav, t1);
-    			append_dev(nav, div2);
-    			append_dev(div2, div1);
-    			append_dev(div1, button0);
-    			append_dev(div1, t3);
-    			append_dev(div1, button1);
-    			append_dev(div1, t5);
-    			append_dev(div1, button2);
-    			append_dev(div1, t7);
-    			append_dev(div1, button3);
-    			append_dev(div1, t9);
-    			append_dev(div1, button4);
-    			append_dev(div1, t11);
-    			append_dev(div1, button5);
-    			append_dev(nav, t13);
-    			append_dev(nav, div3);
-    			append_dev(div3, button6);
-    			append_dev(button6, svg);
-    			append_dev(svg, path);
-    			append_dev(main, t14);
+    			append_dev(main, div4);
+    			append_dev(div4, div1);
+    			append_dev(div1, div0);
+    			append_dev(div0, label);
+    			append_dev(label, svg0);
+    			append_dev(svg0, path0);
+    			append_dev(div0, t0);
+    			append_dev(div0, ul);
+    			append_dev(ul, li0);
+    			append_dev(li0, a0);
+    			append_dev(ul, t2);
+    			append_dev(ul, li1);
+    			append_dev(li1, a1);
+    			append_dev(ul, t4);
+    			append_dev(ul, li2);
+    			append_dev(li2, a2);
+    			append_dev(ul, t6);
+    			append_dev(ul, li3);
+    			append_dev(li3, a3);
+    			append_dev(ul, t8);
+    			append_dev(ul, li4);
+    			append_dev(li4, a4);
+    			append_dev(ul, t10);
+    			append_dev(ul, li5);
+    			append_dev(li5, a5);
+    			append_dev(div4, t12);
+    			append_dev(div4, div2);
+    			append_dev(div2, a6);
+    			append_dev(div4, t14);
+    			append_dev(div4, div3);
+    			append_dev(div3, button0);
+    			append_dev(button0, svg1);
+    			append_dev(svg1, path1);
+    			append_dev(div3, t15);
+    			append_dev(div3, button1);
+    			append_dev(button1, svg2);
+    			append_dev(svg2, path2);
+    			append_dev(main, t16);
     			if_blocks[current_block_type_index].m(main, null);
     			current = true;
-
-    			if (!mounted) {
-    				dispose = [
-    					listen_dev(button0, "click", prevent_default(/*click_handler*/ ctx[1]), false, true, false),
-    					listen_dev(button1, "click", prevent_default(/*click_handler_1*/ ctx[2]), false, true, false),
-    					listen_dev(button2, "click", prevent_default(/*click_handler_2*/ ctx[3]), false, true, false),
-    					listen_dev(button3, "click", prevent_default(/*click_handler_3*/ ctx[4]), false, true, false),
-    					listen_dev(button4, "click", prevent_default(/*click_handler_4*/ ctx[5]), false, true, false),
-    					listen_dev(button5, "click", prevent_default(/*click_handler_5*/ ctx[6]), false, true, false)
-    				];
-
-    				mounted = true;
-    			}
     		},
-    		p: function update(ctx, [dirty]) {
-    			let previous_block_index = current_block_type_index;
-    			current_block_type_index = select_block_type(ctx);
-
-    			if (current_block_type_index !== previous_block_index) {
-    				group_outros();
-
-    				transition_out(if_blocks[previous_block_index], 1, 1, () => {
-    					if_blocks[previous_block_index] = null;
-    				});
-
-    				check_outros();
-    				if_block = if_blocks[current_block_type_index];
-
-    				if (!if_block) {
-    					if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
-    					if_block.c();
-    				}
-
-    				transition_in(if_block, 1);
-    				if_block.m(main, null);
-    			}
-    		},
+    		p: noop,
     		i: function intro(local) {
     			if (current) return;
     			transition_in(if_block);
@@ -1367,8 +1401,6 @@ var app = (function () {
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(main);
     			if_blocks[current_block_type_index].d();
-    			mounted = false;
-    			run_all(dispose);
     		}
     	};
 
@@ -1393,13 +1425,6 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<App> was created with unknown prop '${key}'`);
     	});
 
-    	const click_handler = () => $$invalidate(0, menu = 1);
-    	const click_handler_1 = () => $$invalidate(0, menu = 2);
-    	const click_handler_2 = () => $$invalidate(0, menu = 3);
-    	const click_handler_3 = () => $$invalidate(0, menu = 4);
-    	const click_handler_4 = () => $$invalidate(0, menu = 5);
-    	const click_handler_5 = () => $$invalidate(0, menu = 6);
-
     	$$self.$capture_state = () => ({
     		Blog,
     		Home,
@@ -1418,15 +1443,7 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [
-    		menu,
-    		click_handler,
-    		click_handler_1,
-    		click_handler_2,
-    		click_handler_3,
-    		click_handler_4,
-    		click_handler_5
-    	];
+    	return [menu];
     }
 
     class App extends SvelteComponentDev {
