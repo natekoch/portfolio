@@ -66,13 +66,6 @@ var app = (function () {
         node.addEventListener(event, handler, options);
         return () => node.removeEventListener(event, handler, options);
     }
-    function prevent_default(fn) {
-        return function (event) {
-            event.preventDefault();
-            // @ts-ignore
-            return fn.call(this, event);
-        };
-    }
     function attr(node, attribute, value) {
         if (value == null)
             node.removeAttribute(attribute);
@@ -1414,8 +1407,8 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[4] = list[i];
-    	child_ctx[6] = i;
+    	child_ctx[3] = list[i];
+    	child_ctx[5] = i;
     	return child_ctx;
     }
 
@@ -1423,7 +1416,7 @@ var app = (function () {
     function create_each_block(ctx) {
     	let li;
     	let button;
-    	let t0_value = /*option*/ ctx[4].page + "";
+    	let t0_value = /*option*/ ctx[3].page + "";
     	let t0;
     	let t1;
     	let mounted;
@@ -1437,7 +1430,7 @@ var app = (function () {
     			t1 = space();
     			attr_dev(button, "class", "text-white btn btn-ghost normal-case my-1 border-transparent hover:border-accent");
     			set_style(button, "color", "white");
-    			attr_dev(button, "id", /*i*/ ctx[6]);
+    			attr_dev(button, "id", /*i*/ ctx[5]);
     			add_location(button, file, 22, 5, 789);
     			add_location(li, file, 21, 4, 779);
     		},
@@ -1570,31 +1563,32 @@ var app = (function () {
     			attr_dev(div1, "class", "navbar-start");
     			add_location(div1, file, 14, 2, 290);
     			attr_dev(button0, "class", "btn btn-ghost normal-case text-white hover:text-secondary text-xl");
+    			attr_dev(button0, "id", "0");
     			add_location(button0, file, 29, 4, 1046);
     			attr_dev(div2, "class", "navbar-center");
     			add_location(div2, file, 28, 2, 1014);
     			attr_dev(path1, "d", "M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z");
-    			add_location(path1, file, 33, 314, 1649);
+    			add_location(path1, file, 33, 314, 1633);
     			attr_dev(svg1, "xmlns", "http://www.w3.org/2000/svg");
     			attr_dev(svg1, "class", "h-7 w-7");
     			attr_dev(svg1, "viewBox", "0 0 496 512");
     			set_style(svg1, "fill", "white");
-    			add_location(svg1, file, 33, 4, 1339);
+    			add_location(svg1, file, 33, 4, 1323);
     			attr_dev(button1, "class", "btn btn-ghost btn-circle");
     			attr_dev(button1, "onclick", "window.open('https://github.com/natekoch', '_blank');");
-    			add_location(button1, file, 32, 3, 1229);
+    			add_location(button1, file, 32, 3, 1213);
     			attr_dev(path2, "d", "M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z");
-    			add_location(path2, file, 36, 314, 3418);
+    			add_location(path2, file, 36, 314, 3402);
     			attr_dev(svg2, "xmlns", "http://www.w3.org/2000/svg");
     			attr_dev(svg2, "class", "h-7 w-7");
     			attr_dev(svg2, "viewBox", "0 0 448 512");
     			set_style(svg2, "fill", "white");
-    			add_location(svg2, file, 36, 4, 3108);
+    			add_location(svg2, file, 36, 4, 3092);
     			attr_dev(button2, "class", "btn btn-ghost btn-circle");
     			attr_dev(button2, "onclick", "window.open('https://www.linkedin.com/in/nate-koch', '_blank');");
-    			add_location(button2, file, 35, 3, 2988);
+    			add_location(button2, file, 35, 3, 2972);
     			attr_dev(div3, "class", "navbar-end");
-    			add_location(div3, file, 31, 2, 1201);
+    			add_location(div3, file, 31, 2, 1185);
     			attr_dev(div4, "class", "navbar bg-primary rounded-box");
     			add_location(div4, file, 13, 1, 244);
     			add_location(main, file, 12, 0, 236);
@@ -1638,7 +1632,7 @@ var app = (function () {
     			current = true;
 
     			if (!mounted) {
-    				dispose = listen_dev(button0, "click", prevent_default(/*click_handler*/ ctx[2]), false, true, false);
+    				dispose = listen_dev(button0, "click", /*changePage*/ ctx[1], false, false, false);
     				mounted = true;
     			}
     		},
@@ -1735,8 +1729,6 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<App> was created with unknown prop '${key}'`);
     	});
 
-    	const click_handler = () => menu = 1;
-
     	$$self.$capture_state = () => ({
     		navOptions,
     		selected,
@@ -1753,7 +1745,7 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [selected, changePage, click_handler];
+    	return [selected, changePage];
     }
 
     class App extends SvelteComponentDev {

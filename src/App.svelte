@@ -27,7 +27,7 @@
 		  </div>
 		</div>
 		<div class="navbar-center">
-		  <button class="btn btn-ghost normal-case text-white hover:text-secondary text-xl" on:click|preventDefault={() => (menu = 1)}>nate koch</button>
+		  <button class="btn btn-ghost normal-case text-white hover:text-secondary text-xl" on:click={changePage} id=0>nate koch</button>
 		</div>
 		<div class="navbar-end">
 			<button class="btn btn-ghost btn-circle" onclick="window.open('https://github.com/natekoch', '_blank');">
