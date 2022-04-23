@@ -1,8 +1,14 @@
-# natekoch.xyz Portfolio Website
+# www.natekoch.xyz Portfolio Website
 
-## Currently WIP (not yet deployed)
+## Currently WIP
 
 ### Made with:
 
-* Svelte
+* SvelteJS
+* HTML
+* CSS
 * Tailwindcss + DaisyUI
+
+### Deployed with:
+
+* AWS Amplify
