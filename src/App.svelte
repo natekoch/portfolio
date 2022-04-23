@@ -5,8 +5,8 @@
 	import Contact from "./Contact.svelte";
 	import Photography from "./Photography.svelte";
 	import Programming from "./Programming.svelte";
-
-	let menu = 1;
+	
+	let menu = 2;
 </script>
 
 <main>
