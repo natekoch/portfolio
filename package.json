@@ -9,7 +9,7 @@
     "start": "sirv public",
     "serve": "serve public -p 80",
     "dev": "concurrently \"rollup -c -w\" \"npm run watch:tailwind\"",
-    "deploy": "yarn ./gh-pages.js"
+    "deploy": "node ./gh-pages.js"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
