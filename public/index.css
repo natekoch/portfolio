@@ -546,10 +546,6 @@ video {
  * Ensure the default browser behavior of the `hidden` attribute.
  */
 
-[hidden] {
-  display: none;
-}
-
 *, ::before, ::after {
   --tw-border-opacity: 1;
   border-color: rgba(229, 231, 235, var(--tw-border-opacity));
@@ -678,12 +674,6 @@ html {
 .btn:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
-}
-
-.btn-square {
-  height: 3rem;
-  padding: 0;
-  width: 3rem;
 }
 
 .btn-circle {
@@ -1302,40 +1292,12 @@ html {
   border-radius: var(--rounded-box, 1rem);
 }
 
-.rounded-btn {
-  border-radius: var(--rounded-btn, .5rem);
-}
-
 .btn-sm {
   height: 2rem;
   padding-left: .75rem;
   padding-right: .75rem;
   min-height: 2rem;
   font-size: .875rem;
-}
-
-.btn-square:where(.btn-xs) {
-  height: 1.5rem;
-  padding: 0;
-  width: 1.5rem;
-}
-
-.btn-square:where(.btn-sm) {
-  height: 2rem;
-  padding: 0;
-  width: 2rem;
-}
-
-.btn-square:where(.btn-md) {
-  height: 3rem;
-  padding: 0;
-  width: 3rem;
-}
-
-.btn-square:where(.btn-lg) {
-  height: 4rem;
-  padding: 0;
-  width: 4rem;
 }
 
 .btn-circle:where(.btn-xs) {
@@ -1370,11 +1332,6 @@ html {
   margin: 1rem;
 }
 
-.mx-2 {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-}
-
 .my-1 {
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -1382,18 +1339,6 @@ html {
 
 .mt-3 {
   margin-top: 0.75rem;
-}
-
-.mb-2 {
-  margin-bottom: 0.5rem;
-}
-
-.inline-block {
-  display: inline-block;
-}
-
-.flex {
-  display: flex;
 }
 
 .table {
@@ -1404,16 +1349,8 @@ html {
   display: grid;
 }
 
-.hidden {
-  display: none;
-}
-
 .h-5 {
   height: 1.25rem;
-}
-
-.h-6 {
-  height: 1.5rem;
 }
 
 .h-7 {
@@ -1426,10 +1363,6 @@ html {
 
 .w-5 {
   width: 1.25rem;
-}
-
-.w-6 {
-  width: 1.5rem;
 }
 
 .w-7 {
@@ -1516,10 +1449,6 @@ html {
   place-items: center;
 }
 
-.items-stretch {
-  align-items: stretch;
-}
-
 .gap-0 {
   gap: 0px;
 }
@@ -1551,22 +1480,8 @@ html {
   background-color: hsla(var(--s) / var(--tw-bg-opacity));
 }
 
-.bg-neutral {
-  --tw-bg-opacity: 1;
-  background-color: hsla(var(--n) / var(--tw-bg-opacity));
-}
-
-.stroke-current {
-  stroke: currentColor;
-}
-
 .p-2 {
   padding: 0.5rem;
-}
-
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
 }
 
 .pt-7 {
@@ -1575,11 +1490,6 @@ html {
 
 .text-center {
   text-align: center;
-}
-
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
 }
 
 .text-xl {
@@ -1597,10 +1507,6 @@ html {
   line-height: 2.25rem;
 }
 
-.font-bold {
-  font-weight: 700;
-}
-
 .normal-case {
   text-transform: none;
 }
@@ -1613,11 +1519,6 @@ html {
 .text-secondary {
   --tw-text-opacity: 1;
   color: hsla(var(--s) / var(--tw-text-opacity));
-}
-
-.text-neutral-content {
-  --tw-text-opacity: 1;
-  color: hsla(var(--nc) / var(--tw-text-opacity));
 }
 
 .hover\:text-secondary:hover {
@@ -1685,10 +1586,6 @@ html {
     padding-right: 1.5rem;
     min-height: 4rem;
     font-size: 1.125rem;
-  }
-
-  .lg\:flex {
-    display: flex;
   }
 
   .lg\:grid-cols-4 {
