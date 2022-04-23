@@ -775,6 +775,39 @@ html {
   padding: .5rem .25rem;
 }
 
+.hero {
+  background-position: 50%;
+  background-size: cover;
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+
+.hero>* {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+.hero-overlay {
+  height: 100%;
+  width: 100%;
+  grid-column-start: 1;
+  grid-row-start: 1;
+  --tw-bg-opacity: 1;
+  --tw-bg-opacity: 0.5;
+  background-color: hsla(var(--n) / var(--tw-bg-opacity, 1));
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+  max-width: 80rem;
+  padding: 1rem;
+  gap: 1rem;
+}
+
 .input {
   flex-shrink: 1;
   transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
@@ -1341,6 +1374,10 @@ html {
   margin-top: 0.75rem;
 }
 
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
+
 .table {
   display: table;
 }
@@ -1361,6 +1398,10 @@ html {
   height: 100vh;
 }
 
+.min-h-screen {
+  min-height: 100vh;
+}
+
 .w-5 {
   width: 1.25rem;
 }
@@ -1371,6 +1412,10 @@ html {
 
 .w-52 {
   width: 13rem;
+}
+
+.max-w-md {
+  max-width: 28rem;
 }
 
 @keyframes spin {
@@ -1480,6 +1525,10 @@ html {
   background-color: hsla(var(--s) / var(--tw-bg-opacity));
 }
 
+.bg-opacity-20 {
+  --tw-bg-opacity: 0.2;
+}
+
 .p-2 {
   padding: 0.5rem;
 }
@@ -1507,6 +1556,15 @@ html {
   line-height: 2.25rem;
 }
 
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
 .normal-case {
   text-transform: none;
 }
@@ -1519,6 +1577,11 @@ html {
 .text-secondary {
   --tw-text-opacity: 1;
   color: hsla(var(--s) / var(--tw-text-opacity));
+}
+
+.text-neutral-content {
+  --tw-text-opacity: 1;
+  color: hsla(var(--nc) / var(--tw-text-opacity));
 }
 
 .hover\:text-secondary:hover {

@@ -6,7 +6,7 @@
 	import Photography from "./Photography.svelte";
 	import Programming from "./Programming.svelte";
 	
-	let menu = 2;
+	let menu = 1;
 </script>
 
 <main>
@@ -21,7 +21,7 @@
 			  <li><button class="text-white btn btn-ghost normal-case my-1 border-transparent hover:border-accent" style="color: white" on:click|preventDefault={() => (menu = 2)}>Photography</button></li>
 			  <li><button class="text-white btn btn-ghost normal-case my-1 border-transparent hover:border-accent" style="color: white" on:click|preventDefault={() => (menu = 3)}>Programming</button></li>
 			  <li><button class="text-white btn btn-ghost normal-case my-1 border-transparent hover:border-accent" style="color: white" on:click|preventDefault={() => (menu = 4)}>Blog</button></li>
-			  <li><button class="text-white btn btn-ghost normal-case my-1 border-transparent hover:border-accent" style="color: white" on:click|preventDefault={() => (menu = 5)}>Blog</button></li>
+			  <li><button class="text-white btn btn-ghost normal-case my-1 border-transparent hover:border-accent" style="color: white" on:click|preventDefault={() => (menu = 5)}>About</button></li>
 			  <li><button class="text-white btn btn-ghost normal-case my-1 border-transparent hover:border-accent" style="color: white" on:click|preventDefault={() => (menu = 6)}>Contact</button></li>
 			</ul>
 		  </div>
