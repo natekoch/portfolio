@@ -9,10 +9,10 @@
 
     export const navOptions = [
         { page: 'Homepage', component: Home },
-        { page: 'Photography', component: Photography },
+        { page: 'Photography (WIP)', component: Photography },
         { page: 'Programming', component: Programming },
-        { page: 'Blog', component: Blog },
-        { page: 'About Me', component: About },
+        { page: 'Blog (WIP)', component: Blog },
+        { page: 'About Me (WIP)', component: About },
         { page: 'Contact Me', component: Contact }
     ];
     

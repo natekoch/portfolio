@@ -5,6 +5,7 @@
 	let intSelected = 0;
 
 	function changePage(event) {
+		document.activeElement.blur()
 		selected = navOptions[event.srcElement.id];
 		intSelected = event.srcElement.id;
 	}
