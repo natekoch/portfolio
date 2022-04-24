@@ -11,8 +11,3 @@
         </div>
       </div>
 </body>
-
-<script>
-  
-
-</script>
