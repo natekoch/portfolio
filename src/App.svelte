@@ -8,7 +8,22 @@
 		selected = navOptions[event.srcElement.id];
 		intSelected = event.srcElement.id;
 	}
+
+	const html = document.querySelector("html");
+
+	let time = new Date();
+	let hours = time.getHours();
+	console.log(hours);
+	let darkMode = false;
+	if ((hours <= 8) || (hours >= 18)) {
+		darkMode = true;
+	} else {
+		darkMode = false;
+	}
+
+	(darkMode) ? html.setAttribute("data-theme", "forest") : html.setAttribute("data-theme", "acid");
 </script>
+
 
 <main>
 	<div class="navbar bg-primary rounded-box">
