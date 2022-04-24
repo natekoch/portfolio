@@ -770,7 +770,7 @@ var app = (function () {
     			a3 = element("a");
     			pre5 = element("pre");
     			code5 = element("code");
-    			code5.textContent = "Router_Finder";
+    			code5.textContent = "Route_Finder";
     			t17 = space();
     			a4 = element("a");
     			pre6 = element("pre");
@@ -826,15 +826,15 @@ var app = (function () {
     			set_style(a3, "text-decoration", "none");
     			set_style(a3, "color", "white");
     			add_location(a3, file$3, 13, 8, 1147);
-    			add_location(code6, file$3, 14, 200, 1576);
+    			add_location(code6, file$3, 14, 200, 1575);
     			attr_dev(pre6, "data-prefix", ">");
     			attr_dev(pre6, "class", "hover:bg-secondary hover:text-secondary-content");
-    			add_location(pre6, file$3, 14, 123, 1499);
+    			add_location(pre6, file$3, 14, 123, 1498);
     			attr_dev(a4, "href", "https://github.com/Andistar12/cis422-proj-2");
     			attr_dev(a4, "target", "_blank");
     			set_style(a4, "text-decoration", "none");
     			set_style(a4, "color", "white");
-    			add_location(a4, file$3, 14, 8, 1384);
+    			add_location(a4, file$3, 14, 8, 1383);
     			attr_dev(div1, "class", "mockup-code shadow-2xl border-2 border-secondary");
     			add_location(div1, file$3, 7, 4, 280);
     			add_location(body, file$3, 0, 0, 0);
