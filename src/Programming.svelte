@@ -6,8 +6,8 @@
     </div>
     <br>
     <div class="mockup-code shadow-2xl border-2 border-secondary">
-        <pre data-prefix="$"><code>cd programming_projects</code></pre> 
-        <pre data-prefix="$"><code>ls</code></pre> 
+        <pre data-prefix="$" class="text-accent"><code>cd programming_projects</code></pre> 
+        <pre data-prefix="$" class="text-accent"><code>ls</code></pre> 
         <a href="https://github.com/natekoch/NextUp" target="_blank" style="text-decoration: none; color: white;"><pre data-prefix=">" class="hover:bg-secondary hover:text-secondary-content"><code>NextUp</code></pre></a>
         <a href="https://github.com/natekoch/portfolio" target="_blank" style="text-decoration: none; color: white;"><pre data-prefix=">" class="hover:bg-secondary hover:text-secondary-content"><code>portfolio</code></pre></a>
         <a href="https://github.com/natekoch/LFDucky" target="_blank" style="text-decoration: none; color: white;"><pre data-prefix=">" class="hover:bg-secondary hover:text-secondary-content"><code>LFDucky</code></pre></a>
