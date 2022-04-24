@@ -2,7 +2,7 @@
     <br>
     <div class="text-center">
         <h1 class="text-bold text-3xl text-primary">My Programming Portfolio</h1>
-        <h2 class="text-xl text-white">Click on one of the projects below to be taken to the corresponding git repository.</h2>
+        <h2 class="text-xl text-accent">Click on one of the projects below to be taken to the corresponding git repository.</h2>
     </div>
     <br>
     <div class="mockup-code shadow-2xl border-2 border-secondary">
