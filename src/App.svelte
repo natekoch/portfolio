@@ -14,7 +14,7 @@
 
 	let time = new Date();
 	let hours = time.getHours();
-	console.log(hours);
+
 	let darkMode = false;
 	if ((hours <= 8) || (hours >= 18)) {
 		darkMode = true;
