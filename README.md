@@ -12,6 +12,7 @@
 ### Deployed with:
 
 * AWS Amplify
+* AWS S3
 
 ### Some extra features
 
