@@ -12,7 +12,7 @@
         { page: 'Photography (WIP)', component: Photography },
         { page: 'Programming', component: Programming },
         { page: 'Blog (WIP)', component: Blog },
-        { page: 'About Me (WIP)', component: About },
+        { page: 'About Me', component: About },
         { page: 'Contact Me', component: Contact }
     ];
     

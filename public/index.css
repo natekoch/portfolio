@@ -702,6 +702,23 @@ html {
   --tab-radius: 0;
 }
 
+.avatar {
+  display: inline-flex;
+  position: relative;
+}
+
+.avatar>div {
+  display: block;
+  overflow: hidden;
+}
+
+.avatar img {
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  width: 100%;
+}
+
 .btn {
   border-color: transparent;
   border-color: hsla(var(--n) / var(--tw-border-opacity, 1));
@@ -1590,6 +1607,16 @@ html {
   margin-bottom: 0.25rem;
 }
 
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
 .mt-3 {
   margin-top: 0.75rem;
 }
@@ -1600,6 +1627,10 @@ html {
 
 .mb-5 {
   margin-bottom: 1.25rem;
+}
+
+.flex {
+  display: flex;
 }
 
 .table {
@@ -1618,10 +1649,6 @@ html {
   height: 1.75rem;
 }
 
-.h-screen {
-  height: 100vh;
-}
-
 .min-h-screen {
   min-height: 100vh;
 }
@@ -1634,12 +1661,20 @@ html {
   width: 1.75rem;
 }
 
+.w-48 {
+  width: 12rem;
+}
+
 .w-52 {
   width: 13rem;
 }
 
 .max-w-md {
   max-width: 28rem;
+}
+
+.max-w-3xl {
+  max-width: 48rem;
 }
 
 @keyframes spin {
@@ -1702,24 +1737,12 @@ html {
   }
 }
 
-.grid-flow-row-dense {
-  grid-auto-flow: row dense;
-}
-
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
-.grid-rows-2 {
-  grid-template-rows: repeat(2, minmax(0, 1fr));
-}
-
-.place-items-center {
-  place-items: center;
-}
-
-.gap-0 {
-  gap: 0px;
+.justify-center {
+  justify-content: center;
 }
 
 .gap-6 {
@@ -1728,6 +1751,10 @@ html {
 
 .rounded {
   border-radius: 0.25rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
 }
 
 .border-2 {
@@ -1777,6 +1804,11 @@ html {
 
 .text-center {
   text-align: center;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .text-xl {
@@ -1880,6 +1912,25 @@ html {
   --tw-ring-shadow: 0 0 #0000;
 }
 
+.ring {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
+.ring-primary {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: hsla(var(--p) / var(--tw-ring-opacity));
+}
+
+.ring-offset-2 {
+  --tw-ring-offset-width: 2px;
+}
+
+.ring-offset-base-100 {
+  --tw-ring-offset-color: hsl(var(--b1));
+}
+
 .blur {
   --tw-blur: blur(8px);
 }
@@ -1924,6 +1975,10 @@ html {
 }
 
 @media (min-width: 1280px) {
+  .xl\:w-64 {
+    width: 16rem;
+  }
+
   .xl\:grid-cols-5 {
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
