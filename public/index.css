@@ -770,6 +770,29 @@ html {
   width: 3rem;
 }
 
+.btn.loading,.btn.loading:hover {
+  pointer-events: none;
+}
+
+.btn.loading:before {
+  border-radius: 9999px;
+  border-width: 2px;
+  height: 1rem;
+  margin-right: .5rem;
+  width: 1rem;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  content: "";
+  border-color: transparent currentColor currentColor transparent;
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .btn.loading:before {
+    -webkit-animation: spin 10s linear infinite;
+    animation: spin 10s linear infinite;
+  }
+}
+
 @-webkit-keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -1095,33 +1118,6 @@ html {
   box-shadow: 0 0 0 2px hsl(var(--b1)), 0 0 0 4px hsla(var(--bc) / .2);
 }
 
-.stack {
-  display: inline-grid;
-  place-items: center;
-  align-items: flex-end;
-}
-
-.stack>* {
-  grid-column-start: 1;
-  grid-row-start: 1;
-  transform: translateY(1rem)scale(.9);
-  z-index: 1;
-  width: 100%;
-  opacity: .6;
-}
-
-.stack>:nth-child(2) {
-  transform: translateY(.5rem)scale(.95);
-  z-index: 2;
-  opacity: .8;
-}
-
-.stack>:first-child {
-  transform: translateY(0)scale(1);
-  z-index: 3;
-  opacity: 1;
-}
-
 .table {
   position: relative;
   text-align: left;
@@ -1255,6 +1251,15 @@ html {
 
 .btn-ghost:focus-visible {
   box-shadow: 0 0 0 2px currentColor;
+}
+
+.btn.loading.btn-circle:before {
+  margin-right: 0;
+}
+
+.btn.loading.btn-sm:before {
+  height: .75rem;
+  width: .75rem;
 }
 
 @-webkit-keyframes button-pop {
@@ -1629,6 +1634,10 @@ html {
   margin-bottom: 1.25rem;
 }
 
+.block {
+  display: block;
+}
+
 .flex {
   display: flex;
 }
@@ -1880,16 +1889,6 @@ html {
 
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow-md {
-  --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow-lg {
-  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
