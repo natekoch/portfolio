@@ -9,7 +9,7 @@
             </div>
             <h1 class="text-bold text-2xl text-secondary">Hello There! I am Nate Koch.</h1>
             <p class="text-lg text-accent">
-                I am currently a third-year computer and information science major with a minor in audio production at the University of Oregon. 
+                I am currently a fourth-year computer and information science major with a minor in audio production at the University of Oregon. 
                 While I am currently attending school and residing in Eugene, Oregon, I was born and raised in beautiful Portland, Oregon. 
                 From a young age, I have always found myself drawn to figuring out how computers and various pieces of technology work. 
                 I discovered my passion for computer programming in late middle school. 
