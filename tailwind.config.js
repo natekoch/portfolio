@@ -1,5 +1,7 @@
 const production = !process.env.ROLLUP_WATCH;
 module.exports = {
+  theme: { 
+  },
   future: {
     purgeLayersByDefault: true,
     removeDeprecatedGapUtilities: true, 
