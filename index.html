@@ -1,6 +1,62 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta http-equiv="refresh" content="0; url=./public/index.html">
-	</head>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NATE KOCH</title>
+    <link rel="stylesheet" href="style.css">
+    
+  </head>
+  <body>
+    <div id="home" onclick="changeContent('home')">
+      <h1 data-value="NATE KOCH">NATE KOCH</h1>
+    </div> 
+    <div id="nav">
+      <ul>
+        <li id="about" onclick="changeContent('about')">
+          <h2 data-value="ABOUT">ABOUT</h2>
+        </li>
+        <li id="programming" onclick="changeContent('programming')">
+          <h2 data-value="PROGRAMMING">PROGRAMMING</h2>
+        </li>
+        <li id="photography" onclick="changeContent('photography')">
+          <h2 data-value="PHOTOGRAPHY">PHOTOGRAPHY</h2>
+        </li>
+        <li id="contact" onclick="changeContent('contact')">
+          <h2 data-value="CONTACT">CONTACT</h2>
+        </li>
+      </ul>
+    </div>
+    <div id="home-div"></div>
+    <div id="about-div" style="display: none">
+      <h3>About Me</h3>
+      <p>I am currently a fourth-year computer science major with a minor in audio production at the University of Oregon. 
+        While I am currently attending school and residing in Eugene, Oregon, I was born and raised in beautiful Portland, Oregon. 
+        From a young age, I have always found myself drawn to figuring out how computers and various pieces of technology work. 
+        I discovered my passion for computer programming in late middle school. 
+        Beyond simply just computers, I have also found a love for music. A love that I find myself an avid listener and creator. 
+        I invest time into audio production and sound design through analog and digital methods. 
+        I also love exploring nature with the Canon F-1 my late-grandfather gave to me years ago. 
+        I have showcased some of my adventures on the photography page of this website. 
+        If you have any further questions about me please don't hesitate to ask by contacting me through the "Contact Me" page on this website.
+      </p>
+    </div>
+    <div id="prog-div" style="display: none">
+      <h3>My Programming Projects</h3>
+      <p>Coming Soon</p>
+    </div>
+    <div id="photo-div" style="display: none">
+      <h3>My Photography</h3>
+      <p>Coming Soon</p>
+    </div>
+    <div id="contact-div" style="display: none">
+      <h3>Contact Me</h3>
+      <p>Email is the best way to get in contact with me.</p>
+      <div class="center">
+        <button><a href="mailto:nkoch@jaaku.xyz">Email Me</a></button>
+      </div>
+    </div>
+  </body>
+  <script src="index.js"></script>
 </html>
