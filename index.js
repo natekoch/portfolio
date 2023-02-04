@@ -1,6 +1,6 @@
 const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()-=+_1234567890,./<>?;':\"[]{}|`~";
 
-let interval = null;
+//let interval = null;
 
 let header = document.querySelector("h1");
 
@@ -8,11 +8,12 @@ scrambleText(header);
 
 document.querySelectorAll("h2").forEach((navElement) => {
     navElement.addEventListener("mouseover", () => scrambleText(navElement));
-    navElement.addEventListener("mouseout", () => navElement.innerText = navElement.dataset.value);
+    //navElement.addEventListener("mouseout", () => navElement.innerText = navElement.dataset.value);
 });
 
-
 function scrambleText(event) {
+    let interval = null;
+
     let iteration = 0;
 
     clearInterval(interval);
@@ -125,6 +126,8 @@ const handleOnMove = e => {
       objectPosition: `${100 + nextPercentage}% center`
     }, { duration: 1200, fill: "forwards" });
   }
+
+  console.log("hello");
 };
 
 window.onmousedown = e => handleOnDown(e);
