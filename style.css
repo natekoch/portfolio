@@ -39,8 +39,8 @@ h3, p {
 }
 
 p {
-    margin-left: 20rem;
-    margin-right: 20rem;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
 .center {
@@ -71,3 +71,19 @@ a:hover {
     color: black;
 }
 
+#image-track {
+    display: flex;
+    gap: 4vmin;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(0%, -50%);
+    user-select: none;
+}
+
+#image-track > .image {
+    width: 24vmin;
+    height: 36vmin;
+    object-fit: cover;
+    object-position: 100% center;
+}
