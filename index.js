@@ -8,7 +8,6 @@ scrambleText(header);
 
 document.querySelectorAll("h2").forEach((navElement) => {
     navElement.addEventListener("mouseover", () => scrambleText(navElement));
-    //navElement.addEventListener("mouseout", () => navElement.innerText = navElement.dataset.value);
 });
 
 function scrambleText(event) {
@@ -96,11 +95,12 @@ function changeContent(id) {
 
 const track = document.getElementById("image-track");
 
-const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
+const handleOnDown = e => track.dataset.mouseDownAt = isNaN(e.clientX) ? 0 : e.clientX;
 
 const handleOnUp = () => {
   track.dataset.mouseDownAt = "0";  
   track.dataset.prevPercentage = track.dataset.percentage;
+  console.log(track.dataset.percentage);
 };
 
 const handleOnMove = e => {
@@ -112,6 +112,12 @@ const handleOnMove = e => {
   const percentage = (mouseDelta / maxDelta) * -100,
         nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
         nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
+
+        /*
+        console.log(track.dataset.prevPercentage);
+        console.log(nextPercentageUnconstrained);
+        console.log(nextPercentage);
+        */
   
   track.dataset.percentage = nextPercentage;
   
