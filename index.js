@@ -43,6 +43,7 @@ function changeContent(id) {
     let contact = document.getElementById("contact-div");
 
     if (id == 'about') {
+        document.body.style.backgroundColor = "red";
         scrambleText(header);
 
         about.style.display = "block";
@@ -52,6 +53,7 @@ function changeContent(id) {
         photography.style.display = "none";
         contact.style.display = "none";
     } else if (id == 'programming') {
+        document.body.style.backgroundColor = "blue";
         scrambleText(header);
 
         programming.style.display = "block";
@@ -61,6 +63,7 @@ function changeContent(id) {
         photography.style.display = "none";
         contact.style.display = "none";
     } else if (id == 'photography') {
+        document.body.style.backgroundColor = "black";
         scrambleText(header);
 
         photography.style.display = "block";
@@ -70,6 +73,7 @@ function changeContent(id) {
         about.style.display = "none";
         contact.style.display = "none";
     } else if (id == 'contact') {
+        document.body.style.backgroundColor = "green";
         scrambleText(header);
 
         contact.style.display = "block";
@@ -79,6 +83,7 @@ function changeContent(id) {
         photography.style.display = "none";
         about.style.display = "none";
     } else {
+        document.body.style.backgroundColor = "purple";
         scrambleText(header);
 
         home.style.display = "block";
@@ -97,7 +102,6 @@ const handleOnDown = e => track.dataset.mouseDownAt = isNaN(e.clientX) ? 0 : e.c
 const handleOnUp = () => {
   track.dataset.mouseDownAt = "0";  
   track.dataset.prevPercentage = track.dataset.percentage;
-  console.log(track.dataset.percentage);
 };
 
 const handleOnMove = e => {
@@ -109,12 +113,6 @@ const handleOnMove = e => {
   const percentage = (mouseDelta / maxDelta) * -100,
         nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
         nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
-
-        /*
-        console.log(track.dataset.prevPercentage);
-        console.log(nextPercentageUnconstrained);
-        console.log(nextPercentage);
-        */
   
   track.dataset.percentage = nextPercentage;
   
@@ -129,8 +127,6 @@ const handleOnMove = e => {
       objectPosition: `${100 + nextPercentage}% center`
     }, { duration: 1200, fill: "forwards" });
   }
-
-  console.log("hello");
 };
 
 window.onmousedown = e => handleOnDown(e);

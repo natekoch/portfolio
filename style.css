@@ -44,6 +44,17 @@ p {
     margin-right: 15%;
 }
 
+::-moz-selection {
+    color: red;
+    background: yellow;
+  }
+  
+  
+::selection {
+    color: black;
+    background: white;
+}
+
 .center {
     display: flex;
     justify-content: center;
@@ -52,7 +63,7 @@ p {
 
 button {
     margin-top: 5px;
-    background-color: black;
+    background-color: green;
     text-align: center;
     border: 2px solid white;
 }
@@ -78,8 +89,20 @@ p span {
     padding-bottom: 10px;
 }
 
+#about > h2:hover {
+    color: red;
+}
+
+#programming > h2:hover {
+    color: blue;
+}
+
+#contact > h2:hover {
+    color: green;
+}
+
 #email-button:hover {
-    color: black;
+    color: green;
 }
 
 #email-button {
@@ -93,7 +116,7 @@ p span {
     left: 50%;
     bottom: auto;
     transform: translate(0%, -50%);
-    user-select: none;
+    user-select: none; 
 }
 
 #image-track > .image {
@@ -104,13 +127,18 @@ p span {
     display: inline;
 }
 
-#photo-div {
-    width: 100%;
-    height: 25%;
+#photo-div > p {
+    padding-bottom: 20%;
+}
+
+@media only screen and (min-width: 1400px) {
+    #photo-div > p {
+        padding-bottom: 10%;
+    }
 }
 
 #photography-h3 {
-    padding-bottom: 8rem;
+    padding-bottom: 1rem;
 }
 
 #prog-div > p {
