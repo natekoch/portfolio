@@ -63,7 +63,7 @@ function changeContent(id) {
         photography.style.display = "none";
         contact.style.display = "none";
     } else if (id == 'photography') {
-        document.body.style.backgroundColor = "black";
+        document.body.style.backgroundColor = "gold";
         scrambleText(header);
 
         photography.style.display = "block";
@@ -83,7 +83,7 @@ function changeContent(id) {
         photography.style.display = "none";
         about.style.display = "none";
     } else {
-        document.body.style.backgroundColor = "purple";
+        document.body.style.backgroundColor = "black";
         scrambleText(header);
 
         home.style.display = "block";

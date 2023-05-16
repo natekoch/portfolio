@@ -97,6 +97,10 @@ p span {
     color: blue;
 }
 
+#photography > h2:hover {
+    color: gold;
+}
+
 #contact > h2:hover {
     color: green;
 }
