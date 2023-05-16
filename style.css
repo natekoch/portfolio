@@ -73,6 +73,11 @@ a:hover {
     text-decoration-style: dotted;
 }
 
+p span {
+    display: block; 
+    padding-bottom: 10px;
+}
+
 #email-button:hover {
     color: black;
 }

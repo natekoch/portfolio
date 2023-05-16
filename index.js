@@ -1,7 +1,5 @@
 const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()-=+_1234567890,./<>?;':\"[]{}|`~";
 
-//let interval = null;
-
 let header = document.querySelector("h1");
 
 scrambleText(header);
@@ -43,7 +41,6 @@ function changeContent(id) {
     let programming = document.getElementById("prog-div");
     let photography = document.getElementById("photo-div");
     let contact = document.getElementById("contact-div");
-
 
     if (id == 'about') {
         scrambleText(header);
