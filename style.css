@@ -49,7 +49,7 @@ p {
 }
 
 #prog-div > p > span > a {
-    color: orange;
+    color: deeppink;
 } 
   
 ::selection {
@@ -58,22 +58,22 @@ p {
 }
 
 #about-div ::selection {
-    color: red;
+    color: crimson;
     background: white;
 }
 
 #prog-div ::selection {
-    color: blue;
+    color: dodgerblue;
     background: white;
 }
 
 #photo-div ::selection {
-    color: gold;
+    color: darkgoldenrod;
     background: white;
 }
 
 #contact-div ::selection {
-    color: green;
+    color: olivedrab;
     background: white;
 }
 
@@ -85,7 +85,7 @@ p {
 
 button {
     margin-top: 5px;
-    background-color: green;
+    background-color: olivedrab;
     text-align: center;
     border: 2px solid white;
 }
@@ -112,23 +112,23 @@ p span {
 }
 
 #about > h2:hover {
-    color: red;
+    color: crimson;
 }
 
 #programming > h2:hover {
-    color: blue;
+    color: dodgerblue;
 }
 
 #photography > h2:hover {
-    color: gold;
+    color: darkgoldenrod;
 }
 
 #contact > h2:hover {
-    color: green;
+    color: olivedrab;
 }
 
 #email-button:hover {
-    color: green;
+    color: olivedrab;
 }
 
 #email-button {

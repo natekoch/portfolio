@@ -43,7 +43,7 @@ function changeContent(id) {
     let contact = document.getElementById("contact-div");
 
     if (id == 'about') {
-        document.body.style.backgroundColor = "red";
+        document.body.style.backgroundColor = "crimson";
         scrambleText(header);
 
         about.style.display = "block";
@@ -53,7 +53,7 @@ function changeContent(id) {
         photography.style.display = "none";
         contact.style.display = "none";
     } else if (id == 'programming') {
-        document.body.style.backgroundColor = "blue";
+        document.body.style.backgroundColor = "dodgerblue";
         scrambleText(header);
 
         programming.style.display = "block";
@@ -63,7 +63,7 @@ function changeContent(id) {
         photography.style.display = "none";
         contact.style.display = "none";
     } else if (id == 'photography') {
-        document.body.style.backgroundColor = "gold";
+        document.body.style.backgroundColor = "darkgoldenrod";
         scrambleText(header);
 
         photography.style.display = "block";
@@ -73,7 +73,7 @@ function changeContent(id) {
         about.style.display = "none";
         contact.style.display = "none";
     } else if (id == 'contact') {
-        document.body.style.backgroundColor = "green";
+        document.body.style.backgroundColor = "olivedrab";
         scrambleText(header);
 
         contact.style.display = "block";
