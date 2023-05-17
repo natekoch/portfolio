@@ -32,7 +32,7 @@
         </li>
       </ul>
     </div>
-    <div id="home-div"></div>
+    <div id="home-div"><br></div>
     <div id="about-div" style="display: none">
       <h3>ABOUT ME</h3>
       <p>I am a recent computer science graduate with a minor in audio production from the University of Oregon. 
@@ -44,55 +44,77 @@
         I also love exploring nature with the Canon FTb my late-grandfather gave to me years ago. 
         I have showcased some of my adventures on the photography page of this website. 
       </p>
+      <br>
     </div>
-    <div id="prog-div" style="display: none">
+    <div id="prog-div">
       <h3>MY PROGRAMMING PROJECTS</h3>
       <a href="https://github.com/natekoch"><h4>My GitHub</h4></a>
       <p>
         <span><a href="https://github.com/natekoch/CPU-Rasterizer">CPU-Rasterizer</a> - C</span>
-        <span>A CPU based computer graphics rasterizer with phong shading and camera rotation.</p></span>
+        <span>A CPU based computer graphics rasterizer with phong shading and camera rotation built from scratch.</span>
+        <span>Capable of rasterizing millions of triangles.</span>
+        <span>Final state of this program showcases modeling important medical models like an aneurysm.</span>
+      </p>
       <p>
         <span><a href="https://github.com/natekoch/DuckChat">DuckChat</a> - C/C++</span>
         <span>A client-server UDP chat application with optional server to server communication.</span>
-      </p>
-      <p>
-        <span><a href="https://github.com/natekoch/OpenGL-LevelOfDetail">OpenGL-LevelOfDetail</a> - C/C++</span>
-        <span>A level of detail computer graphics performance demo.</span>
-      </p>
-      <p>
-        <span><a href="https://github.com/natekoch/OpenGL-Dog">OpenGL-Dog</a> - C/C++</span>
-        <span>A dog modeled using OpenGL.</span>
-      </p>
-      <p>
-        <span><a href="https://github.com/natekoch/OpenGL-1DTextures">OpenGL-1DTextures</a> - C/C++</span>
-        <span>1D Textures demo using OpenGL.</span>
-      </p>
-      <p>
-        <span><a href="https://github.com/natekoch/ThreeJS-Dog">ThreeJS-Dog</a> - JavaScript (ThreeJS), HTML, CSS</span>
-        <span>A dog modeled and animated using ThreeJS.</span>
-      </p>
-      <p>
-        <span><a href="https://github.com/natekoch/LFDucky">LFDucky</a> - HTML, CSS, JavaScript</span>
-        <span>A Flappy Bird clone.</span>
+        <span>Designed to handle and connect hundreds of user simultaneously.</span>
+        <span>With the optional server to server mode enabled, DuckChat could theoretically deploy servers across the globe to communicate with each other.</span>
       </p>
       <p>
         <span><a href="https://github.com/natekoch/tac">tac</a> - HTML, CSS, JavaScript, Python, Docker</span>
-        <span>An online call-to-action event organization platform.</span>
-        <span>&emsp;&emsp;&emsp;Role: Front End Developer</span>
+        <span>An online call-to-action event organization platform deployed as a progressive web application.</span>
+        <span>Directed the design of the user interface as well as implemented it.</span>
+        <span>tac was built as a decentralized platform that servered as an online bulitin board or a powerline post where people staple fliers.</span>
+        <span>Worked alongside four other developers in a team called nope logistics.</span>
       </p>
       <p>
         <span><a href="https://github.com/natekoch/Route-Finder">Route Finder</a> - HTML, CSS, JavaScript, Python, Docker</span>
-        <span>A multistop navigation application.</span>
-        <span>&emsp;&emsp;&emsp;Role: Front End Developer</span>
+        <span>A multistop navigation PWA.</span>
+        <span>Was in charge of designing the user interface and implemented it.</span>
+        <span>Route Finder was created in order to provide an online solution for people with busy lives with lots of errands and small businesses with many deliveries to be completed in a single round trip.</span>
+        <span>Our product was able to solve the traveling salesperson problem, or TSP, with an 86% optimal solution.</span>
+        <span>An ant colony optimization algorithm was integrated in order to achieve such optimal results.</span>
+        <span>Worked alongside four other developers in a team called nope logistics.</span>
       </p>
       <p>
         <span><a href="https://github.com/natekoch/NextUp">NextUp</a> - Swift, SwiftUI</span> 
         <span>An iOS app designed to help you stay on task by only showing you what is next up.</span>
+        <span>Capable of taking a long to do list of hundereds of tasks and only showing you what the next thing you have to do is.</span>
+        <span>Designed with human psychology in mind to not overwhelm and make a lot of things to do look small and more approachable.</span>
+      </p>
+      <p>
+        <span><a href="https://github.com/natekoch/OpenGL-LevelOfDetail">OpenGL-LevelOfDetail</a> - C/C++</span>
+        <span>A level of detail computer graphics performance demo.</span>
+        <span>Created to test load on a GPU while simulateneously determining what level of detail was required to present a good looking image to the human eye.</span>
+        <span>Drawn spheres were rasterized with varying levels of recursion while also the number of spheres rendered at varied recursion levels.</span>
+        <span>Results were determined by framerate tests and visual inspection.</span>
+      </p>
+      <p>
+        <span><a href="https://github.com/natekoch/OpenGL-Dog">OpenGL-Dog</a> - C/C++</span>
+        <span>A dog modeled using OpenGL.</span>
+        <span>The dog was modeled using only spheres and cylinders that were transformed with linear algebra matrix multiplications.</span>
+      </p>
+      <p>
+        <span><a href="https://github.com/natekoch/OpenGL-1DTextures">OpenGL-1DTextures</a> - C/C++</span>
+        <span>1D Textures demo using OpenGL.</span>
+        <span>Textures were mapped using vertex and fragment shaders with glsl.</span>
+      </p>
+      <p>
+        <span><a href="https://github.com/natekoch/ThreeJS-Dog">ThreeJS-Dog</a> - JavaScript (ThreeJS), HTML, CSS</span>
+        <span>A dog modeled and animated using ThreeJS.</span>
+        <span>The dog was modeled using ThreeJS geometries, materials, and lights.</span>
+        <span>Animation was used to make parts of the dog move and come to life.</span>
       </p>
       <p>
         <span><a href="https://github.com/natekoch/portfolio">My Portfolio</a> - HTML, CSS, JavaScript</span>
         <span>This website.</span>
       </p>
+      <p>
+        <span><a href="https://github.com/natekoch/LFDucky">LFDucky</a> - HTML, CSS, JavaScript</span>
+        <span>A Flappy Bird clone.</span>
+      </p>
+      <br>
     </div>
     <div id="photo-div" style="display: none">
       <h3 id="photography-h3">MY PHOTOGRAPHY</h3>
@@ -117,6 +139,7 @@
         <img class="image" src="https://live.staticflickr.com/65535/52668185040_4839c66dc1_c.jpg" draggable="false" />
         <img class="image" src="https://live.staticflickr.com/65535/52668038429_b95ec1c68e_c.jpg" draggable="false" />
       </div>
+      <br>
     </div>
     <div id="contact-div" style="display: none">
       <h3>CONTACT ME</h3>
@@ -124,11 +147,11 @@
       <div class="center">
         <p>
         <span><button><a id='email-button' href="mailto:nkoch@jaaku.xyz">Email Me</a></button></span>
-        
-          <span><a style="padding-inline: 1rem" href="https://github.com/natekoch">GitHub</a></span>
-          <span><a href="https://linkedin.com/in/nate-koch">LinkedIn</a></span>
+          <span><a style="padding-inline: 1rem; color: lime;" href="https://github.com/natekoch">GitHub</a></span>
+          <span><a style="color: blue;" href="https://linkedin.com/in/nate-koch">LinkedIn</a></span>
         </p>
       </div>
+      <br>
     </div>
   </body>
   <script src="index.js"></script>

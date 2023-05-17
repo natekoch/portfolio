@@ -44,14 +44,36 @@ p {
     margin-right: 15%;
 }
 
-::-moz-selection {
-    color: red;
-    background: yellow;
-  }
-  
+#prog-div > a { 
+    color: lime;
+}
+
+#prog-div > p > span > a {
+    color: orange;
+} 
   
 ::selection {
     color: black;
+    background: white;
+}
+
+#about-div ::selection {
+    color: red;
+    background: white;
+}
+
+#prog-div ::selection {
+    color: blue;
+    background: white;
+}
+
+#photo-div ::selection {
+    color: gold;
+    background: white;
+}
+
+#contact-div ::selection {
+    color: green;
     background: white;
 }
 
