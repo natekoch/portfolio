@@ -44,6 +44,10 @@ p {
     margin-right: 15%;
 }
 
+#about-div > p {
+    text-align: left;
+}
+
 #prog-div > a { 
     color: lime;
 }
@@ -168,5 +172,17 @@ p span {
 }
 
 #prog-div > p {
+    text-align: left;
+}
+
+#swipe-instructions {
+    text-align: center;
+}
+
+#contact-div > p {
+    text-align: center;
+}
+
+.photo-info {
     text-align: left;
 }
