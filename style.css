@@ -139,34 +139,6 @@ p span {
     text-decoration: none;
 }
 
-#image-track {
-    display: inline-flex;
-    gap: 4vmin;
-    position: relative;
-    left: 50%;
-    bottom: auto;
-    transform: translate(0%, -50%);
-    user-select: none; 
-}
-
-#image-track > .image {
-    width: 24vmin;
-    height: 36vmin;
-    object-fit: cover;
-    object-position: 100% center;
-    display: inline;
-}
-
-#photo-div > p {
-    padding-bottom: 20%;
-}
-
-@media only screen and (min-width: 1400px) {
-    #photo-div > p {
-        padding-bottom: 10%;
-    }
-}
-
 #photography-h3 {
     padding-bottom: 1rem;
 }
@@ -185,4 +157,40 @@ p span {
 
 .photo-info {
     text-align: left;
+}
+
+.row {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.column {
+    flex: 25%;
+    max-width: 40%;
+    padding: 0 10px;
+}
+
+.column img {
+     margin-top: 20px;
+     vertical-align: middle;
+     width: 100%;
+}
+
+@media screen and (max-width: 800px) {
+    .column {
+        flex: 40%;
+        max-width: 50%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+        flex: 100%;
+        max-width: 100%;
+    }
+}
+
+::-webkit-scrollbar {
+    display:none;
 }
