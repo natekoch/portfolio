@@ -94,3 +94,12 @@ function changeContent(id) {
         contact.style.display = "none";
     }
 }
+
+document.body.style.cursor = 'none';
+
+const cursor = document.querySelector('.cursor');
+    
+document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+})
