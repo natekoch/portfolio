@@ -97,6 +97,9 @@ function changeContent(id) {
 
 document.body.style.cursor = 'none';
 
+const links = document.querySelectorAll('a');
+links.forEach(link => link.style.cursor = 'none');
+
 const cursor = document.querySelector('.cursor');
     
 document.addEventListener('mousemove', (e) => {
